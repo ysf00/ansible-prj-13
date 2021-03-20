@@ -1,0 +1,17 @@
+---
+- name: Install httpd on server
+  yum:
+    name: httpd
+    state: present
+
+- name:  copy config file
+  template:
+    src: redhat_apache.conf
+    dest: /etc/httpd/conf.d
+  notify: Reload httpd
+
+- name: Enable httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
