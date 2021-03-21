@@ -7,3 +7,8 @@
   service:
     name: httpd
     state: restarted
+
+- name: Restart apache2
+  service: 
+    name: apache2
+    state: restarted
