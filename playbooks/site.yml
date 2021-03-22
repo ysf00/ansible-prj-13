@@ -17,3 +17,6 @@
   import_playbook: ../static-assignments/loadbalancers.yml
   when: load_balancer_is_required 
 
+- hosts: lb
+- name: Letsencrypt assignment
+  import_playbook: ../static-assignments/certbot.yml

@@ -10,12 +10,18 @@
     dest: /etc/nginx/sites-available
   notify: Restart nginx
 
-- name: Enable New site
-  command: /usr/sbin/a2ensite deb_nginx.conf
-  notify: Restart nginx
+- name: Disable default page
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
 
 - name: Disable default page
-  command: /usr/sbin/a2dissite 000-default.conf
+  file:
+    path: /etc/nginx/sites-enabled/deb_nginx.conf
+    state: absent
+
+- name: Enable New site
+  command: ln -s /etc/nginx/sites-available/deb_nginx.conf /etc/nginx/sites-enabled
   notify: Restart nginx
 
 - name: Nginx start at boot time

@@ -1,0 +1,10 @@
+- hosts: lb
+  become: yes
+
+  vars:
+    certbot_auto_renew_user: ubuntu
+    certbot_auto_renew_minute: "20"
+    certbot_auto_renew_hour: "5"
+
+  roles:
+     - certbot
