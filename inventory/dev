@@ -1,5 +1,5 @@
 [nfs]
-172.31.36.2 ansible_user=ubuntu
+#172.31.36.2 ansible_user=ubuntu
 
 [webservers]
 172.31.36.3 ansible_user=ec2-user
