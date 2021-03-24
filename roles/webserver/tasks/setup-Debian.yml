@@ -15,6 +15,7 @@
       - git
       - libapache2-mod-php
       - php-mysqli
+      - mysql-client
     state: present
 
 - name: Copy the code from github

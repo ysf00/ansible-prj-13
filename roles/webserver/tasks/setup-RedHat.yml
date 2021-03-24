@@ -13,6 +13,7 @@
       - php*
       - httpd
       - git
+      - mysql
     state: present
 
 - name: Copy the code from github
@@ -50,6 +51,15 @@
     src: welcome.conf
     dest: /etc/httpd/conf.d/welcome.conf
   notify: Restart Httpd
+
+- name: Allow network
+  command: /usr/sbin/setsebool -P httpd_can_network_connect 1
+
+- name: Allow network
+  command: /usr/sbin/setsebool -P httpd_can_network_connect_db 1
+
+- name: Allow network
+  command: /usr/sbin/setsebool -P httpd_read_user_content 1
 
 - name: Enable Httpd
   service:
