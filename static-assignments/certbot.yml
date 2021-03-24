@@ -1,7 +1,7 @@
 - hosts: lb
   become: yes
   vars:
-    certbot_auto_renew_user: ubuntu
+    certbot_auto_renew_user: root
 
   roles:
      - certbot

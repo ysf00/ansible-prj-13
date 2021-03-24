@@ -8,7 +8,7 @@
             - dev.yml
             - prod.yml
             - uat.yml
-            - staging.yml
+            - stage.yml
           paths:
             - "{{ playbook_dir }}/env_vars"
           skip: true
